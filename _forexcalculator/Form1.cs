@@ -26,5 +26,30 @@ namespace _forexcalculator
         {
 
         }
+
+        private void reset_Click(object sender, EventArgs e)
+        {
+            accountBal.Clear();
+            risk.Clear();
+            slPrice.Clear();
+            entryPrice.Clear();
+            // Replace invalid curPair.Clear() with proper listbox reset:
+            curPair.Items.Clear();
+            curPair.Items.AddRange(new object[]
+            {
+                "EURUSD",
+                "GBPUSD",
+                "USDJPY",
+                "GBPJPY",
+                "EURJPY",
+                 "XAUUSD",
+                "XAGUSD",
+                "US100",
+                "US30"
+            });
+            curPair.ClearSelected();// ensures no item is selected
+            // alternatively: curPair.SelectedIndex = -1;
+        }
     }
+    
 }

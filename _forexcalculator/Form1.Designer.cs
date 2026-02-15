@@ -39,13 +39,14 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.reset = new System.Windows.Forms.Button();
+            this.accountBal = new System.Windows.Forms.TextBox();
+            this.risk = new System.Windows.Forms.TextBox();
+            this.entryPrice = new System.Windows.Forms.TextBox();
+            this.slPrice = new System.Windows.Forms.TextBox();
+            this.curPair = new System.Windows.Forms.ListBox();
+            this.lotSize = new System.Windows.Forms.Label();
+            this.stopLossPrice = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -160,64 +161,65 @@
             this.button1.Text = "Calculate";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // reset
             // 
-            this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(279, 730);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(192, 41);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Reset";
-            this.button2.UseVisualStyleBackColor = false;
+            this.reset.BackColor = System.Drawing.Color.Red;
+            this.reset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reset.Location = new System.Drawing.Point(279, 730);
+            this.reset.Name = "reset";
+            this.reset.Size = new System.Drawing.Size(192, 41);
+            this.reset.TabIndex = 11;
+            this.reset.Text = "Reset";
+            this.reset.UseVisualStyleBackColor = false;
+            this.reset.Click += new System.EventHandler(this.reset_Click);
             // 
-            // textBox1
+            // accountBal
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(309, 109);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(187, 32);
-            this.textBox1.TabIndex = 12;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.accountBal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.accountBal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accountBal.Location = new System.Drawing.Point(309, 109);
+            this.accountBal.Name = "accountBal";
+            this.accountBal.Size = new System.Drawing.Size(187, 32);
+            this.accountBal.TabIndex = 12;
+            this.accountBal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox2
+            // risk
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(309, 202);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(187, 32);
-            this.textBox2.TabIndex = 13;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.risk.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.risk.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.risk.Location = new System.Drawing.Point(309, 202);
+            this.risk.Name = "risk";
+            this.risk.Size = new System.Drawing.Size(187, 32);
+            this.risk.TabIndex = 13;
+            this.risk.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox3
+            // entryPrice
             // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(309, 403);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(187, 32);
-            this.textBox3.TabIndex = 14;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.entryPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.entryPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.entryPrice.Location = new System.Drawing.Point(309, 403);
+            this.entryPrice.Name = "entryPrice";
+            this.entryPrice.Size = new System.Drawing.Size(187, 32);
+            this.entryPrice.TabIndex = 14;
+            this.entryPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox4
+            // slPrice
             // 
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(309, 514);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(187, 32);
-            this.textBox4.TabIndex = 15;
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.slPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.slPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.slPrice.Location = new System.Drawing.Point(309, 514);
+            this.slPrice.Name = "slPrice";
+            this.slPrice.Size = new System.Drawing.Size(187, 32);
+            this.slPrice.TabIndex = 15;
+            this.slPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // listBox1
+            // curPair
             // 
-            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 26;
-            this.listBox1.Items.AddRange(new object[] {
+            this.curPair.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.curPair.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.curPair.FormattingEnabled = true;
+            this.curPair.ItemHeight = 26;
+            this.curPair.Items.AddRange(new object[] {
             "EURUSD",
             "GBPUSD",
             "USDJPY",
@@ -227,34 +229,45 @@
             "XAGUSD",
             "US100",
             "US30"});
-            this.listBox1.Location = new System.Drawing.Point(309, 304);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(187, 54);
-            this.listBox1.TabIndex = 16;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.curPair.Location = new System.Drawing.Point(309, 304);
+            this.curPair.Name = "curPair";
+            this.curPair.Size = new System.Drawing.Size(187, 54);
+            this.curPair.TabIndex = 16;
+            this.curPair.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // label9
+            // lotSize
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(865, 112);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 29);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "label9";
+            this.lotSize.AutoSize = true;
+            this.lotSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lotSize.Location = new System.Drawing.Point(865, 112);
+            this.lotSize.Name = "lotSize";
+            this.lotSize.Size = new System.Drawing.Size(111, 29);
+            this.lotSize.TabIndex = 17;
+            this.lotSize.Text = "Lot Size :";
+            // 
+            // stopLossPrice
+            // 
+            this.stopLossPrice.AutoSize = true;
+            this.stopLossPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stopLossPrice.Location = new System.Drawing.Point(890, 188);
+            this.stopLossPrice.Name = "stopLossPrice";
+            this.stopLossPrice.Size = new System.Drawing.Size(54, 29);
+            this.stopLossPrice.TabIndex = 18;
+            this.stopLossPrice.Text = "SL :";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1458, 853);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.stopLossPrice);
+            this.Controls.Add(this.lotSize);
+            this.Controls.Add(this.curPair);
+            this.Controls.Add(this.slPrice);
+            this.Controls.Add(this.entryPrice);
+            this.Controls.Add(this.risk);
+            this.Controls.Add(this.accountBal);
+            this.Controls.Add(this.reset);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
@@ -286,13 +299,14 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button reset;
+        private System.Windows.Forms.TextBox accountBal;
+        private System.Windows.Forms.TextBox risk;
+        private System.Windows.Forms.TextBox entryPrice;
+        private System.Windows.Forms.TextBox slPrice;
+        private System.Windows.Forms.ListBox curPair;
+        private System.Windows.Forms.Label lotSize;
+        private System.Windows.Forms.Label stopLossPrice;
     }
 }
 
