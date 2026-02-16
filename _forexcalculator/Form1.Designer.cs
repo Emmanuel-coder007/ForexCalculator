@@ -34,11 +34,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
+            this.calculate = new System.Windows.Forms.Button();
             this.reset = new System.Windows.Forms.Button();
             this.accountBal = new System.Windows.Forms.TextBox();
             this.risk = new System.Windows.Forms.TextBox();
@@ -47,6 +45,13 @@
             this.curPair = new System.Windows.Forms.ListBox();
             this.lotSize = new System.Windows.Forms.Label();
             this.stopLossPrice = new System.Windows.Forms.Label();
+            this.riskAmount = new System.Windows.Forms.Label();
+            this.percentage = new System.Windows.Forms.RadioButton();
+            this.amount = new System.Windows.Forms.RadioButton();
+            this.groupRisk = new System.Windows.Forms.GroupBox();
+            this.groupBuySell = new System.Windows.Forms.GroupBox();
+            this.groupRisk.SuspendLayout();
+            this.groupBuySell.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -110,56 +115,41 @@
             this.label6.Text = "StopLoss Price:";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(42, 630);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 29);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Buy:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(173, 630);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(66, 29);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Sell:";
-            // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(111, 637);
+            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton1.Location = new System.Drawing.Point(11, 14);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(21, 20);
+            this.radioButton1.Size = new System.Drawing.Size(78, 30);
             this.radioButton1.TabIndex = 8;
             this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Buy";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(245, 637);
+            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton2.Location = new System.Drawing.Point(108, 14);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(21, 20);
+            this.radioButton2.Size = new System.Drawing.Size(78, 30);
             this.radioButton2.TabIndex = 9;
             this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Sell";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // calculate
             // 
-            this.button1.BackColor = System.Drawing.Color.Green;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(47, 730);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(192, 41);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Calculate";
-            this.button1.UseVisualStyleBackColor = false;
+            this.calculate.BackColor = System.Drawing.Color.Green;
+            this.calculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calculate.Location = new System.Drawing.Point(47, 730);
+            this.calculate.Name = "calculate";
+            this.calculate.Size = new System.Drawing.Size(192, 41);
+            this.calculate.TabIndex = 10;
+            this.calculate.Text = "Calculate";
+            this.calculate.UseVisualStyleBackColor = false;
+            this.calculate.Click += new System.EventHandler(this.calculateBtn);
             // 
             // reset
             // 
@@ -204,6 +194,7 @@
             this.entryPrice.Size = new System.Drawing.Size(187, 32);
             this.entryPrice.TabIndex = 14;
             this.entryPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.entryPrice.TextChanged += new System.EventHandler(this.entryPrice_TextChanged);
             // 
             // slPrice
             // 
@@ -214,6 +205,7 @@
             this.slPrice.Size = new System.Drawing.Size(187, 32);
             this.slPrice.TabIndex = 15;
             this.slPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.slPrice.TextChanged += new System.EventHandler(this.slPrice_TextChanged);
             // 
             // curPair
             // 
@@ -251,17 +243,77 @@
             // 
             this.stopLossPrice.AutoSize = true;
             this.stopLossPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stopLossPrice.Location = new System.Drawing.Point(890, 188);
+            this.stopLossPrice.Location = new System.Drawing.Point(865, 189);
             this.stopLossPrice.Name = "stopLossPrice";
             this.stopLossPrice.Size = new System.Drawing.Size(54, 29);
             this.stopLossPrice.TabIndex = 18;
             this.stopLossPrice.Text = "SL :";
+            // 
+            // riskAmount
+            // 
+            this.riskAmount.AutoSize = true;
+            this.riskAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.riskAmount.Location = new System.Drawing.Point(865, 248);
+            this.riskAmount.Name = "riskAmount";
+            this.riskAmount.Size = new System.Drawing.Size(159, 29);
+            this.riskAmount.TabIndex = 19;
+            this.riskAmount.Text = "Risk Amount :";
+            // 
+            // percentage
+            // 
+            this.percentage.AutoSize = true;
+            this.percentage.Location = new System.Drawing.Point(6, 7);
+            this.percentage.Name = "percentage";
+            this.percentage.Size = new System.Drawing.Size(48, 24);
+            this.percentage.TabIndex = 20;
+            this.percentage.TabStop = true;
+            this.percentage.Text = "%";
+            this.percentage.UseVisualStyleBackColor = true;
+            // 
+            // amount
+            // 
+            this.amount.AutoSize = true;
+            this.amount.Location = new System.Drawing.Point(60, 8);
+            this.amount.Name = "amount";
+            this.amount.Size = new System.Drawing.Size(43, 24);
+            this.amount.TabIndex = 21;
+            this.amount.TabStop = true;
+            this.amount.Text = "£";
+            this.amount.UseVisualStyleBackColor = true;
+            this.amount.CheckedChanged += new System.EventHandler(this.amount_CheckedChanged);
+            // 
+            // groupRisk
+            // 
+            this.groupRisk.BackColor = System.Drawing.Color.Transparent;
+            this.groupRisk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.groupRisk.Controls.Add(this.percentage);
+            this.groupRisk.Controls.Add(this.amount);
+            this.groupRisk.Location = new System.Drawing.Point(522, 197);
+            this.groupRisk.Name = "groupRisk";
+            this.groupRisk.Size = new System.Drawing.Size(109, 37);
+            this.groupRisk.TabIndex = 22;
+            this.groupRisk.TabStop = false;
+            // 
+            // groupBuySell
+            // 
+            this.groupBuySell.BackColor = System.Drawing.Color.Transparent;
+            this.groupBuySell.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.groupBuySell.Controls.Add(this.radioButton1);
+            this.groupBuySell.Controls.Add(this.radioButton2);
+            this.groupBuySell.Location = new System.Drawing.Point(309, 596);
+            this.groupBuySell.Name = "groupBuySell";
+            this.groupBuySell.Size = new System.Drawing.Size(187, 50);
+            this.groupBuySell.TabIndex = 23;
+            this.groupBuySell.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1458, 853);
+            this.Controls.Add(this.groupBuySell);
+            this.Controls.Add(this.groupRisk);
+            this.Controls.Add(this.riskAmount);
             this.Controls.Add(this.stopLossPrice);
             this.Controls.Add(this.lotSize);
             this.Controls.Add(this.curPair);
@@ -270,11 +322,7 @@
             this.Controls.Add(this.risk);
             this.Controls.Add(this.accountBal);
             this.Controls.Add(this.reset);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.calculate);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -283,6 +331,11 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.groupRisk.ResumeLayout(false);
+            this.groupRisk.PerformLayout();
+            this.groupBuySell.ResumeLayout(false);
+            this.groupBuySell.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,11 +349,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button calculate;
         private System.Windows.Forms.Button reset;
         private System.Windows.Forms.TextBox accountBal;
         private System.Windows.Forms.TextBox risk;
@@ -309,6 +360,11 @@
         private System.Windows.Forms.ListBox curPair;
         private System.Windows.Forms.Label lotSize;
         private System.Windows.Forms.Label stopLossPrice;
+        private System.Windows.Forms.Label riskAmount;
+        private System.Windows.Forms.RadioButton percentage;
+        private System.Windows.Forms.RadioButton amount;
+        private System.Windows.Forms.GroupBox groupRisk;
+        private System.Windows.Forms.GroupBox groupBuySell;
     }
 }
 
