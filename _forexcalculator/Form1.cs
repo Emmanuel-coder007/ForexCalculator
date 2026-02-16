@@ -50,6 +50,24 @@ namespace _forexcalculator
             curPair.ClearSelected();// ensures no item is selected
             // alternatively: curPair.SelectedIndex = -1;
         }
+
+        private void accountBal_TextChanged(object sender, EventArgs e)
+        {
+            if (!decimal.TryParse(accountBal.Text, out _))
+            {
+                MessageBox.Show("Please enter a valid decimal number for Account Balance.");
+                accountBal.Clear();
+            }
+        }
+
+        private void risk_TextChanged(object sender, EventArgs e)
+        {
+            if (!decimal.TryParse(risk.Text, out _))
+            {
+                MessageBox.Show("Please enter a valid decimal number less than or equal to 100 for Risk.");
+                risk.Clear();
+            }
+        }
     }
     
 }

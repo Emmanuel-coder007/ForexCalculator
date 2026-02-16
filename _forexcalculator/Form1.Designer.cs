@@ -1,6 +1,6 @@
 ﻿namespace _forexcalculator
 {
-    partial class Form1
+    public partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -182,6 +182,7 @@
             this.accountBal.Size = new System.Drawing.Size(187, 32);
             this.accountBal.TabIndex = 12;
             this.accountBal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.accountBal.TextChanged += new System.EventHandler(this.accountBal_TextChanged);
             // 
             // risk
             // 
@@ -192,6 +193,7 @@
             this.risk.Size = new System.Drawing.Size(187, 32);
             this.risk.TabIndex = 13;
             this.risk.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.risk.TextChanged += new System.EventHandler(this.risk_TextChanged);
             // 
             // entryPrice
             // 
