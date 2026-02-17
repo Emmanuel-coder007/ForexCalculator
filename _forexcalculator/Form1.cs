@@ -18,7 +18,10 @@ namespace _forexcalculator
         
         private string riskBtnValue = string.Empty;
         private string buyOrSellValue = string.Empty;
-       
+
+        private decimal riskPercentage;
+        private decimal risk_Amount;
+
         private void label6_Click(object sender, EventArgs e)
         {
 
@@ -125,16 +128,22 @@ namespace _forexcalculator
         //buttons
         private void calculateBtn(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(accountBal.Text) || string.IsNullOrEmpty(risk.Text) || string.IsNullOrEmpty(entryPrice.Text))
+            {
+                MessageBox.Show("Please don't leave the important spaces empty calculating.");
+                return;
+            }
             switch (riskBtnValue)
             {
                 case "amount":
                     // Implement calculation logic for amount-based risk here
                     MessageBox.Show("Calculating based on amount risk...");
-                    riskAmount.Text = "Risk Amount: ${}"; // Placeholder for actual calculated value
+                    risk_Amount = decimal.Parse(risk.Text); // Placeholder for actual calculated value
                     break;
                 case "percentage":
                     // Implement calculation logic for percentage-based risk here
                     MessageBox.Show("Calculating based on percentage risk...");
+                    riskPercentage = decimal.Parse(risk.Text) / 100 * decimal.Parse(accountBal.Text);
                     break;
                 default:
                     MessageBox.Show("Please select a risk type (Amount or Percentage) before calculating.");
