@@ -15,7 +15,10 @@ namespace _forexcalculator
         {
             InitializeComponent();
         }
-
+        
+        private string riskBtnValue = string.Empty;
+        private string buyOrSellValue = string.Empty;
+       
         private void label6_Click(object sender, EventArgs e)
         {
 
@@ -57,6 +60,7 @@ namespace _forexcalculator
                 MessageBox.Show("Please enter a valid decimal number for Account Balance.");
                 accountBal.Clear();
             }
+           
         }
 
         private void risk_TextChanged(object sender, EventArgs e)
@@ -66,7 +70,13 @@ namespace _forexcalculator
                 MessageBox.Show("Please enter a valid decimal number less than or equal to 100 for Risk.");
                 risk.Clear();
             }
+            else if(riskBtnValue == "percentage" && (decimal.Parse(risk.Text) > 100 || decimal.Parse(risk.Text) < 1))
+            {
+                MessageBox.Show("Risk percentage cannot be greater than 100 or less than 1.");
+                risk.Clear();
+            }
         }
+
         private void entryPrice_TextChanged(object sender, EventArgs e)
         {
             if (!decimal.TryParse(entryPrice.Text, out _))
@@ -84,12 +94,7 @@ namespace _forexcalculator
                 slPrice.Clear();
             }
         }
-
-        //buttons
-        private void calculateBtn(object sender, EventArgs e)
-        {
-            
-        }
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -98,7 +103,43 @@ namespace _forexcalculator
 
         private void amount_CheckedChanged(object sender, EventArgs e)
         {
+            riskBtnValue = "amount";
+        }
 
+        private void percentage_CheckedChanged(object sender, EventArgs e)
+        {
+            riskBtnValue = "percentage";
+        }
+
+        private void buy_CheckedChanged(object sender, EventArgs e)
+        {
+            buyOrSellValue = "buy";
+        }
+
+        private void sell_CheckedChanged(object sender, EventArgs e)
+        {
+            buyOrSellValue = "sell";
+        }
+
+
+        //buttons
+        private void calculateBtn(object sender, EventArgs e)
+        {
+            switch (riskBtnValue)
+            {
+                case "amount":
+                    // Implement calculation logic for amount-based risk here
+                    MessageBox.Show("Calculating based on amount risk...");
+                    riskAmount.Text = "Risk Amount: ${}"; // Placeholder for actual calculated value
+                    break;
+                case "percentage":
+                    // Implement calculation logic for percentage-based risk here
+                    MessageBox.Show("Calculating based on percentage risk...");
+                    break;
+                default:
+                    MessageBox.Show("Please select a risk type (Amount or Percentage) before calculating.");
+                    break;
+            }
         }
     }
     

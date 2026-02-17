@@ -48,10 +48,10 @@
             this.riskAmount = new System.Windows.Forms.Label();
             this.percentage = new System.Windows.Forms.RadioButton();
             this.amount = new System.Windows.Forms.RadioButton();
-            this.groupRisk = new System.Windows.Forms.GroupBox();
-            this.groupBuySell = new System.Windows.Forms.GroupBox();
-            this.groupRisk.SuspendLayout();
-            this.groupBuySell.SuspendLayout();
+            this.riskPanel = new System.Windows.Forms.Panel();
+            this.buyOrSellPanel = new System.Windows.Forms.Panel();
+            this.riskPanel.SuspendLayout();
+            this.buyOrSellPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -119,25 +119,27 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(11, 14);
+            this.radioButton1.Location = new System.Drawing.Point(12, 15);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(78, 30);
             this.radioButton1.TabIndex = 8;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Buy";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.buy_CheckedChanged);
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(108, 14);
+            this.radioButton2.Location = new System.Drawing.Point(110, 15);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(78, 30);
             this.radioButton2.TabIndex = 9;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Sell";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.sell_CheckedChanged);
             // 
             // calculate
             // 
@@ -262,57 +264,58 @@
             // percentage
             // 
             this.percentage.AutoSize = true;
-            this.percentage.Location = new System.Drawing.Point(6, 7);
+            this.percentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.percentage.Location = new System.Drawing.Point(16, 14);
             this.percentage.Name = "percentage";
-            this.percentage.Size = new System.Drawing.Size(48, 24);
+            this.percentage.Size = new System.Drawing.Size(52, 26);
             this.percentage.TabIndex = 20;
             this.percentage.TabStop = true;
             this.percentage.Text = "%";
             this.percentage.UseVisualStyleBackColor = true;
+            this.percentage.CheckedChanged += new System.EventHandler(this.percentage_CheckedChanged);
             // 
             // amount
             // 
             this.amount.AutoSize = true;
-            this.amount.Location = new System.Drawing.Point(60, 8);
+            this.amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.amount.Location = new System.Drawing.Point(94, 14);
             this.amount.Name = "amount";
-            this.amount.Size = new System.Drawing.Size(43, 24);
+            this.amount.Size = new System.Drawing.Size(46, 26);
             this.amount.TabIndex = 21;
             this.amount.TabStop = true;
             this.amount.Text = "£";
             this.amount.UseVisualStyleBackColor = true;
             this.amount.CheckedChanged += new System.EventHandler(this.amount_CheckedChanged);
             // 
-            // groupRisk
+            // riskPanel
             // 
-            this.groupRisk.BackColor = System.Drawing.Color.Transparent;
-            this.groupRisk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.groupRisk.Controls.Add(this.percentage);
-            this.groupRisk.Controls.Add(this.amount);
-            this.groupRisk.Location = new System.Drawing.Point(522, 197);
-            this.groupRisk.Name = "groupRisk";
-            this.groupRisk.Size = new System.Drawing.Size(109, 37);
-            this.groupRisk.TabIndex = 22;
-            this.groupRisk.TabStop = false;
+            this.riskPanel.BackColor = System.Drawing.Color.Transparent;
+            this.riskPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.riskPanel.Controls.Add(this.percentage);
+            this.riskPanel.Controls.Add(this.amount);
+            this.riskPanel.Location = new System.Drawing.Point(502, 189);
+            this.riskPanel.Name = "riskPanel";
+            this.riskPanel.Size = new System.Drawing.Size(145, 45);
+            this.riskPanel.TabIndex = 24;
             // 
-            // groupBuySell
+            // buyOrSellPanel
             // 
-            this.groupBuySell.BackColor = System.Drawing.Color.Transparent;
-            this.groupBuySell.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.groupBuySell.Controls.Add(this.radioButton1);
-            this.groupBuySell.Controls.Add(this.radioButton2);
-            this.groupBuySell.Location = new System.Drawing.Point(309, 596);
-            this.groupBuySell.Name = "groupBuySell";
-            this.groupBuySell.Size = new System.Drawing.Size(187, 50);
-            this.groupBuySell.TabIndex = 23;
-            this.groupBuySell.TabStop = false;
+            this.buyOrSellPanel.BackColor = System.Drawing.Color.Transparent;
+            this.buyOrSellPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buyOrSellPanel.Controls.Add(this.radioButton1);
+            this.buyOrSellPanel.Controls.Add(this.radioButton2);
+            this.buyOrSellPanel.Location = new System.Drawing.Point(309, 591);
+            this.buyOrSellPanel.Name = "buyOrSellPanel";
+            this.buyOrSellPanel.Size = new System.Drawing.Size(187, 52);
+            this.buyOrSellPanel.TabIndex = 25;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1458, 853);
-            this.Controls.Add(this.groupBuySell);
-            this.Controls.Add(this.groupRisk);
+            this.Controls.Add(this.buyOrSellPanel);
+            this.Controls.Add(this.riskPanel);
             this.Controls.Add(this.riskAmount);
             this.Controls.Add(this.stopLossPrice);
             this.Controls.Add(this.lotSize);
@@ -332,10 +335,10 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.groupRisk.ResumeLayout(false);
-            this.groupRisk.PerformLayout();
-            this.groupBuySell.ResumeLayout(false);
-            this.groupBuySell.PerformLayout();
+            this.riskPanel.ResumeLayout(false);
+            this.riskPanel.PerformLayout();
+            this.buyOrSellPanel.ResumeLayout(false);
+            this.buyOrSellPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,8 +366,8 @@
         private System.Windows.Forms.Label riskAmount;
         private System.Windows.Forms.RadioButton percentage;
         private System.Windows.Forms.RadioButton amount;
-        private System.Windows.Forms.GroupBox groupRisk;
-        private System.Windows.Forms.GroupBox groupBuySell;
+        private System.Windows.Forms.Panel riskPanel;
+        private System.Windows.Forms.Panel buyOrSellPanel;
     }
 }
 
